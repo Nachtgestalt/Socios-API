@@ -1,0 +1,923 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Acuatica" Class="BasedatosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=Acuatica;Integrated Security=True" SettingsObjectName="uFacturaEDatos.Properties.Settings" SettingsPropertyName="AcuaticaConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Comprobantes" Member="Comprobantes">
+    <Type Name="Comprobante">
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idDocumento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idComprobanteRef" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Serie" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Folio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idSucursal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="SubTotalNeto" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Saldo" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Moneda" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="TipoCambio" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="FormaPago" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CondicionesPago" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MetodoPago" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Descuento" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="MotivoDescuento" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NumCtaPago" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Generado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaEmision" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCertificacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaCancelado" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Uuid" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="NoCertificadoSAT" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SelloCFD" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SelloSAT" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CadenaSAT" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RutaXML" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Pagado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AcuseCancel" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="txtCancel" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ModoPrueba" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="idUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OpValue1" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue2" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue3" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue4" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue5" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue6" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue7" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue8" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue9" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpValue10" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="Clave_Domicilio_Entrega" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Comprobante_Comprobantes_Detalle" Member="Comprobantes_Detalles" ThisKey="idComprobante" OtherKey="idComprobante" Type="Comprobantes_Detalle" />
+      <Association Name="Comprobante_Cuentas_Por_Cobrar" Member="Cuentas_Por_Cobrars" ThisKey="idComprobante" OtherKey="idComprobante" Type="Cuentas_Por_Cobrar" />
+      <Association Name="Documento_Comprobante" Member="Documento" ThisKey="idDocumento" OtherKey="idDocumento" Type="Documento" IsForeignKey="true" />
+      <Association Name="T_Trabajo_Comprobante" Member="T_Trabajo" ThisKey="idCliente" OtherKey="SocioId" Type="T_Trabajo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comprobantes_Detalle" Member="Comprobantes_Detalles">
+    <Type Name="Comprobantes_Detalle">
+      <Column Name="IdDetalle" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idConcepto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoIdentificacion" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Unidad" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="ValorUnitario" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Descuento_Tasa" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Descuento_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATrasladoTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTrasladoTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencionTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencionTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Aduana_Numero" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Aduana_Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Aduana_Nombre" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CalcularPorTotal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ImportePorTotal" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="SocioID" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Column Name="ClaveSat" Type="System.String" DbType="VarChar(10)" CanBeNull="false" />
+      <Association Name="Comprobante_Comprobantes_Detalle" Member="Comprobante" ThisKey="idComprobante" OtherKey="idComprobante" Type="Comprobante" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comprobantes_Programacion" Member="Comprobantes_Programacions">
+    <Type Name="Comprobantes_Programacion">
+      <Column Name="idProg" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Inicia" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Termina" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Indefinido" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Periodo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TipoRegla" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Conceptos" Member="Conceptos">
+    <Type Name="Concepto">
+      <Column Name="idConcepto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEmpresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Clave" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Grupo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Familia" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Descripcion" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EsServicio" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Unidad" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ValorUnitario" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATrasladoTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTrasladoTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencionTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencionTasa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Descuento_Tasa" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Aduana_Numero" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Aduana_Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Aduana_Nombre" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cuentas_Por_Cobrar" Member="Cuentas_Por_Cobrars">
+    <Type Name="Cuentas_Por_Cobrar">
+      <Column Name="idCXC" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Abono" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Saldo" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Referencia" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Association Name="Comprobante_Cuentas_Por_Cobrar" Member="Comprobante" ThisKey="idComprobante" OtherKey="idComprobante" Type="Comprobante" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documentos" Member="Documentos">
+    <Type Name="Documento">
+      <Column Name="idDocumento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idSucursal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="idFormato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="NoAprobacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AnoAprobacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FolioInicial" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FoliosFinal" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FoliosSerie" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RutaCBB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VigenciaDesde" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VigenciaHasta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Impuestos_TasaIVATraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_TasaIEPSTraslado" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_TasaIVARetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_TasaISRRetencion" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Activo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OpLabel1" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel2" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel3" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel4" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel5" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel6" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel7" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel8" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel9" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="OpLabel10" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Documento_Comprobante" Member="Comprobantes" ThisKey="idDocumento" OtherKey="idDocumento" Type="Comprobante" />
+      <Association Name="Sucursales_Documento" Member="Sucursales" ThisKey="idSucursal" OtherKey="idSucursal" Type="Sucursales" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Documentos_Formatos" Member="Documentos_Formatos">
+    <Type Name="Documentos_Formato">
+      <Column Name="idFormato" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Socio" Member="T_Socio">
+    <Type Name="T_Socio">
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LugarNac" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="FechaNac" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Edad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Nacionalidad" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Calle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Colonia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Promocion" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Socio_Anterior" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Razon" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FechaBaja" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Observacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaRein" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ExDif" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Expectativas" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Folios" Member="T_Folios">
+    <Type Name="T_Folios">
+      <Column Name="FolioId" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Contador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdSucursal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_RemRec" Member="T_RemRec">
+    <Type Name="T_RemRec">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RemRecId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Iva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="User_NIP" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Cancelado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Otros" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Uniformes" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Facturado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_RemRecDet" Member="T_RemRecDet">
+    <Type Name="T_RemRecDet">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RemRecId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SocioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SocioSuc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LineNum" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ConceptoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Iva" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Descuento" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="otros" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="IDCuota" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Cuotas" Member="T_Cuotas">
+    <Type Name="T_Cuotas">
+      <Column Name="SocioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MesID" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="FecPago" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.String" DbType="NVarChar(17)" CanBeNull="true" />
+      <Column Name="NoFactura" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Enuso" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="otros" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Facturado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="NoRemision" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Linea" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sucursales" Member="Sucursales">
+    <Type Name="Sucursales">
+      <Column Name="idSucursal" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idEmpresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EsSucursal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NombreSucursal" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="LugarExpedicion" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Calle" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="NoExterior" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NoInterior" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Colonia" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Localidad" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Municipio" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Pais" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Logotipo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DirectorioTrabajo" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Correo_Servidor" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Correo_Puerto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Correo_Correo" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Correo_Usuario" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Correo_Clave" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Correo_RequiereSSL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Correo_RequiereAuth" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Correo_Asunto" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Correo_Mensaje" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sello_Certificado" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Sello_VigenciaDesde" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sello_VigenciaHasta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sello_Serie" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Sello_CertificadoBase64" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sello_Llave" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Sello_Clave" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Sello_Cancela" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Timbrado_ModoPrueba" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Licencia" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="Sucursales_Documento" Member="Documento" ThisKey="idSucursal" OtherKey="idSucursal" Type="Documento" />
+      <Association Name="Empresa_Sucursales" Member="Empresa" ThisKey="idEmpresa" OtherKey="idEmpresa" Type="Empresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Trabajo" Member="T_Trabajo">
+    <Type Name="T_Trabajo">
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Puesto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Calle" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NoExterior" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="NoInterior" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Localidad" Type="System.String" DbType="NChar(250)" CanBeNull="true" />
+      <Column Name="Colonia" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CP" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fax" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="eMail" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="RFC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MetodoPago" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Cuenta" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="T_Trabajo_Comprobante" Member="Comprobante" ThisKey="SocioId" OtherKey="idCliente" Type="Comprobante" />
+    </Type>
+  </Table>
+  <Table Name="dbo.I_IngresoDiario" Member="I_IngresoDiario">
+    <Type Name="I_IngresoDiario">
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Recibo" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Import" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cajero" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Otros" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.I_TipoIngreso" Member="I_TipoIngreso">
+    <Type Name="I_TipoIngreso">
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_CChica" Member="T_CChica">
+    <Type Name="T_CChica">
+      <Column Name="CajaID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NoFactura" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Saldo" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_Calificaciones" Member="C_Calificaciones">
+    <Type Name="C_Calificaciones">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClaveSocio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GrupoId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Calificacion1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="cadena" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Calificacion2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="cadena2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Aplico" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fecha_Ev" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Fecha_Ex" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descri" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="P_Conforme" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Des_P_Conforme" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="N_Correctiva" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Agrupacion" Member="T_Agrupacion">
+    <Type Name="T_Agrupacion">
+      <Column Name="AgrupacionID" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SeFactura" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SocioCatego" Member="T_SocioCatego">
+    <Type Name="T_SocioCatego">
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Categoria" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Entrego" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Familiar" Member="T_Familiar">
+    <Type Name="T_Familiar">
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ParentescoId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaNac" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Fotografia" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Sexo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Sangre" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Fuma" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Bebidas" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Alergias" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Enfermedades" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Operaciones" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Medicamentos" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Observaciones" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Secuencia" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Avisar" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Avisar_tel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Examen_Medico" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Medico" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TelMedico" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_Examen_Ubicacion" Member="C_Examen_Ubicacion">
+    <Type Name="C_Examen_Ubicacion">
+      <Column Name="Clave" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cadena1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena6" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena7" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena8" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cadena9" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hecho" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Observacion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Categoria_max" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Aplico" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FECHA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Evaluaciones" Member="T_Evaluaciones">
+    <Type Name="T_Evaluaciones">
+      <Column Name="EvaluacionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Evaluacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CategoriaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_AreasSocio" Member="T_AreasSocio">
+    <Type Name="T_AreasSocio">
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GrupoId" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TipoPago" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Area" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Categoriaid" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_Categorias" Member="C_Categorias">
+    <Type Name="C_Categorias">
+      <Column Name="Categoriaid" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nivel" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Imagen" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cs_Horario" Member="Cs_Horario">
+    <Type Name="Cs_Horario">
+      <Column Name="Hora" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cs_ListaGpo" Member="Cs_ListaGpo">
+    <Type Name="Cs_ListaGpo">
+      <Column Name="Grupo" Type="System.String" DbType="VarChar(298)" CanBeNull="true" />
+      <Column Name="CatGpo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoLista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="L" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="M" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="MI" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="J" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="V" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="S" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Hora_Inicio" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="SocioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Aparta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Reponclase" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="GrupoId" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaApartado" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="CatSocio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Dia" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Apartados" Member="T_Apartados">
+    <Type Name="T_Apartados">
+      <Column Name="ApartaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GrupoID" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NoLista" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Reponclase" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Dia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Aparta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Users" Member="T_Users">
+    <Type Name="T_Users">
+      <Column Name="User_NIP" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="User_pwd" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Type" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Depto" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="User_Pusto" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="User_Sts" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_GrantsModules" Member="T_GrantsModules">
+    <Type Name="T_GrantsModules">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Grant_Modulo" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Visible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Perfiles" Member="T_Perfiles">
+    <Type Name="T_Perfiles">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Perfil" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Grants" Member="T_Grants">
+    <Type Name="T_Grants">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GrantId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Grant_UserNIP" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Grant_Modulo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Grant_Opcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_Documentos" Member="C_Documentos">
+    <Type Name="C_Documentos">
+      <Column Name="DocumentoID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Documento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="C_Documentos_C_AreasDocumentos" Member="C_AreasDocumentos" ThisKey="DocumentoID" OtherKey="DocumentoID" Type="C_AreasDocumentos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Bitacora" Member="T_Bitacora">
+    <Type Name="T_Bitacora">
+      <Column Name="Bitacora_NIP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Bitacora_User_NIP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Bitacora_Event" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Bitacora_Modulo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Bitacora_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SociosDocumentos" Member="T_SociosDocumentos">
+    <Type Name="T_SociosDocumentos">
+      <Column Name="DocSocioID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SocioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AreaDocumentoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Documento" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="C_AreasDocumentos_T_SociosDocumentos" Member="C_AreasDocumentos" ThisKey="AreaDocumentoID" OtherKey="Id" Type="C_AreasDocumentos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_AreasDocumentos" Member="C_AreasDocumentos">
+    <Type Name="C_AreasDocumentos">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DocumentoID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AreaID" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="C_AreasDocumentos_T_SociosDocumentos" Member="T_SociosDocumentos" ThisKey="Id" OtherKey="AreaDocumentoID" Type="T_SociosDocumentos" />
+      <Association Name="C_Documentos_C_AreasDocumentos" Member="C_Documentos" ThisKey="DocumentoID" OtherKey="DocumentoID" Type="C_Documentos" IsForeignKey="true" />
+      <Association Name="C_Areas_C_AreasDocumentos" Member="C_Areas" ThisKey="AreaID" OtherKey="AreaId" Type="C_Areas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_Areas" Member="C_Areas">
+    <Type Name="C_Areas">
+      <Column Name="AreaId" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Inscripcion" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Mensual" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Trimestral" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Semestral" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Anual" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Especial_1" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Especial_2" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Especial_3" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="DeporteId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="AreaP" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="NoDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="C_Areas_C_AreasDocumentos" Member="C_AreasDocumentos" ThisKey="AreaId" OtherKey="AreaID" Type="C_AreasDocumentos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Tabular" Member="T_Tabular">
+    <Type Name="T_Tabular">
+      <Column Name="TabularID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AreaId" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="InstructorId" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cs_ListaGpoDet" Member="Cs_ListaGpoDet">
+    <Type Name="Cs_ListaGpoDet">
+      <Column Name="Grupo" Type="System.String" DbType="VarChar(298)" CanBeNull="true" />
+      <Column Name="CatGpo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NoLista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CatSocio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="L" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="M" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="MI" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="J" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="V" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="S" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Dia" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Hora_Inicio" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="SocioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hora" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Comentario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GrupoId" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Aparta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Orden" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="Reponclase" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FechaApartado" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ApartaID" Type="System.Int32" DbType="Int IDENTITY" IsDbGenerated="true" CanBeNull="true" />
+      <Column Name="Retraso" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SociosTarjetas" Member="SociosTarjetas">
+    <Type Name="SociosTarjetas">
+      <Column Name="SocioID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tarjeta" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Empresas" Member="Empresa">
+    <Type Name="Empresa">
+      <Column Name="idEmpresa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="rfcEmpresa" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="RegimenFiscal" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Timbrado_Clave" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NombreComercial" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="FechaCorte" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="Empresa_Sucursales" Member="Sucursales" ThisKey="idEmpresa" OtherKey="idEmpresa" Type="Sucursales" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Pagos" Member="T_Pagos">
+    <Type Name="T_Pagos">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReciboID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PagoID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.C_Instructores" Member="C_Instructores">
+    <Type Name="C_Instructores">
+      <Column Name="InstructorId" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="Calle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Colonia" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="CP" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RFC" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CURP" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="IMSS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DeporteId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pais" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LugarNac" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="FechaNac" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Edad" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Nacionalidad" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Foto" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Indicador" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Sangre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Salario" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Observaciones" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SalarioMH" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Percepciones" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Deduciones" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Incentivos" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SucursalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_Conceptos" Member="T_Conceptos">
+    <Type Name="T_Conceptos">
+      <Column Name="ConceptoId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Inicio" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Final" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha_Registro" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ConceptoSts" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo_Cuota" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="IVA" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PIva" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="uniforme" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Orden" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ClaveSat" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Unidad" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Get_Comprobantes_Catalogo" Method="Get_Comprobantes_Catalogo" IsComposable="true">
+    <Parameter Name="idEmpresa" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Get_Comprobantes_CatalogoResult">
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Documento" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Serie" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Folio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaEmision" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Reporte_Dia" Method="sp_Reporte_Dia">
+    <Parameter Name="idSucursal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaEmision" Parameter="fechaEmision" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Reporte_DiaResult">
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoDocumento" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Serie" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Folio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaEmision" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RfcCliente" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Reporte_Mes" Method="sp_Reporte_Mes">
+    <Parameter Name="idSucursal" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaEmision" Parameter="fechaEmision" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_Reporte_MesResult">
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoDocumento" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Serie" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Folio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaEmision" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RfcCliente" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Version" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVATraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IEPSTraslado_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_IVARetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Impuestos_ISRRetencion_Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GenerarFolioComprobante" Method="GenerarFolioComprobante" IsComposable="true">
+    <Parameter Name="idDocumento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idSucursal" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.sp_Reporte_Cobranza" Method="sp_Reporte_Cobranza">
+    <Parameter Name="idSucursal" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Reporte_CobranzaResult">
+      <Column Name="NombreSucursal" Type="System.String" DbType="NVarChar(60) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoDocumento" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Serie" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Folio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RfcCliente" Type="System.String" DbType="NVarChar(13) NOT NULL" CanBeNull="false" />
+      <Column Name="RazonSocial" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Saldo" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Pagado" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PlazoPagoDias" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FechaEmision" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="DiasTranscurridos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Reporte_Abonos_Comprobante" Method="sp_Reporte_Abonos_Comprobante">
+    <Parameter Name="idComprobante" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_Reporte_Abonos_ComprobanteResult">
+      <Column Name="idCXC" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idComprobante" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Importe" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Abono" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Saldo" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Referencia" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ConceptoIngreso" Method="sp_ConceptoIngreso">
+    <Parameter Name="F1" Parameter="f1" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="F2" Parameter="f2" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ID2" Parameter="iD2" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_ConceptoIngresoResult">
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Totales" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_PagosIngreso" Method="sp_PagosIngreso">
+    <Parameter Name="F1" Parameter="f1" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="F2" Parameter="f2" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ID2" Parameter="iD2" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_PagosIngresoResult">
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ConceptoIngresoFac" Method="sp_ConceptoIngresoFac">
+    <Parameter Name="F1" Parameter="f1" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="F2" Parameter="f2" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ID2" Parameter="iD2" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_ConceptoIngresoFacResult">
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Totales" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DetalleIngresoFac" Method="sp_DetalleIngresoFac">
+    <Parameter Name="F1" Parameter="f1" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="F2" Parameter="f2" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ID2" Parameter="iD2" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_DetalleIngresoFacResult">
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FacRecId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Cancelado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SocioId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(21,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Iva" Type="System.Decimal" DbType="Decimal(21,6) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(21,6)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="idConcepto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Decimal" DbType="Decimal(18,6) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DetalleIngreso" Method="sp_DetalleIngreso">
+    <Parameter Name="F1" Parameter="f1" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="F2" Parameter="f2" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ID2" Parameter="iD2" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_DetalleIngresoResult">
+      <Column Name="SocioId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FacRecID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ConceptoId" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Cancelado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="periodo" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Otros" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Sp_CajaChica" Method="Sp_CajaChica">
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.String" DbType="VarChar(12)" />
+    <ElementType Name="Sp_CajaChicaResult">
+      <Column Name="Referencia" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Saldo" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NoFactura" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_PagosIngreso1" Method="sp_PagosIngreso1">
+    <Parameter Name="F1" Parameter="f1" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="F2" Parameter="f2" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="ID" Parameter="iD" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="ID2" Parameter="iD2" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="sp_PagosIngreso1Result">
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Pagoid" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

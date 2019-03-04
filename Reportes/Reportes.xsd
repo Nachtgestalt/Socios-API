@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Reportes" targetNamespace="http://tempuri.org/Reportes.xsd" xmlns:mstns="http://tempuri.org/Reportes.xsd" xmlns="http://tempuri.org/Reportes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="AquaraKidsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="AquaraKidsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.AquaraKidsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Cs_RecibosTableAdapter" GeneratorDataComponentClassName="Cs_RecibosTableAdapter" Name="Cs_Recibos" UserDataComponentName="Cs_RecibosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AquaraKidsConnectionString (Web.config)" DbObjectName="AquaraKids.dbo.Cs_Recibos" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT RemRecId, SocioId, Cantidad, Importe, Nombre, Expr1, otros, User_ID, Fecha, MesID FROM dbo.Cs_Recibos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RemRecId" DataSetColumn="RemRecId" />
+              <Mapping SourceColumn="SocioId" DataSetColumn="SocioId" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Importe" DataSetColumn="Importe" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="otros" DataSetColumn="otros" />
+              <Mapping SourceColumn="User_ID" DataSetColumn="User_ID" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="MesID" DataSetColumn="MesID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Cs_SociosDiasTableAdapter" GeneratorDataComponentClassName="Cs_SociosDiasTableAdapter" Name="Cs_SociosDias" UserDataComponentName="Cs_SociosDiasTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AquaraKidsConnectionString (Web.config)" DbObjectName="AquaraKids.dbo.Cs_SociosDias" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT GrupoId, Nombre, Categoria, NDia, Hora_Inicio, Hora_Final, SocioId, InstructorId FROM dbo.Cs_SociosDias</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="GrupoId" DataSetColumn="GrupoId" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Categoria" DataSetColumn="Categoria" />
+              <Mapping SourceColumn="NDia" DataSetColumn="NDia" />
+              <Mapping SourceColumn="Hora_Inicio" DataSetColumn="Hora_Inicio" />
+              <Mapping SourceColumn="Hora_Final" DataSetColumn="Hora_Final" />
+              <Mapping SourceColumn="SocioId" DataSetColumn="SocioId" />
+              <Mapping SourceColumn="InstructorId" DataSetColumn="InstructorId" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Reportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Reportes" msprop:Generator_UserDSName="Reportes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Cs_Recibos" msprop:Generator_TableClassName="Cs_RecibosDataTable" msprop:Generator_TableVarName="tableCs_Recibos" msprop:Generator_TablePropName="Cs_Recibos" msprop:Generator_RowDeletingName="Cs_RecibosRowDeleting" msprop:Generator_RowChangingName="Cs_RecibosRowChanging" msprop:Generator_RowEvHandlerName="Cs_RecibosRowChangeEventHandler" msprop:Generator_RowDeletedName="Cs_RecibosRowDeleted" msprop:Generator_UserTableName="Cs_Recibos" msprop:Generator_RowChangedName="Cs_RecibosRowChanged" msprop:Generator_RowEvArgName="Cs_RecibosRowChangeEvent" msprop:Generator_RowClassName="Cs_RecibosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RemRecId" msprop:Generator_ColumnVarNameInTable="columnRemRecId" msprop:Generator_ColumnPropNameInRow="RemRecId" msprop:Generator_ColumnPropNameInTable="RemRecIdColumn" msprop:Generator_UserColumnName="RemRecId" type="xs:int" />
+              <xs:element name="SocioId" msprop:Generator_ColumnVarNameInTable="columnSocioId" msprop:Generator_ColumnPropNameInRow="SocioId" msprop:Generator_ColumnPropNameInTable="SocioIdColumn" msprop:Generator_UserColumnName="SocioId" type="xs:int" minOccurs="0" />
+              <xs:element name="Cantidad" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:short" minOccurs="0" />
+              <xs:element name="Importe" msprop:Generator_ColumnVarNameInTable="columnImporte" msprop:Generator_ColumnPropNameInRow="Importe" msprop:Generator_ColumnPropNameInTable="ImporteColumn" msprop:Generator_UserColumnName="Importe" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="otros" msprop:Generator_ColumnVarNameInTable="columnotros" msprop:Generator_ColumnPropNameInRow="otros" msprop:Generator_ColumnPropNameInTable="otrosColumn" msprop:Generator_UserColumnName="otros" type="xs:decimal" minOccurs="0" />
+              <xs:element name="User_ID" msprop:Generator_ColumnVarNameInTable="columnUser_ID" msprop:Generator_ColumnPropNameInRow="User_ID" msprop:Generator_ColumnPropNameInTable="User_IDColumn" msprop:Generator_UserColumnName="User_ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MesID" msprop:Generator_ColumnVarNameInTable="columnMesID" msprop:Generator_ColumnPropNameInRow="MesID" msprop:Generator_ColumnPropNameInTable="MesIDColumn" msprop:Generator_UserColumnName="MesID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Cs_SociosDias" msprop:Generator_TableClassName="Cs_SociosDiasDataTable" msprop:Generator_TableVarName="tableCs_SociosDias" msprop:Generator_TablePropName="Cs_SociosDias" msprop:Generator_RowDeletingName="Cs_SociosDiasRowDeleting" msprop:Generator_RowChangingName="Cs_SociosDiasRowChanging" msprop:Generator_RowEvHandlerName="Cs_SociosDiasRowChangeEventHandler" msprop:Generator_RowDeletedName="Cs_SociosDiasRowDeleted" msprop:Generator_UserTableName="Cs_SociosDias" msprop:Generator_RowChangedName="Cs_SociosDiasRowChanged" msprop:Generator_RowEvArgName="Cs_SociosDiasRowChangeEvent" msprop:Generator_RowClassName="Cs_SociosDiasRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GrupoId" msprop:Generator_ColumnVarNameInTable="columnGrupoId" msprop:Generator_ColumnPropNameInRow="GrupoId" msprop:Generator_ColumnPropNameInTable="GrupoIdColumn" msprop:Generator_UserColumnName="GrupoId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Categoria" msprop:Generator_ColumnVarNameInTable="columnCategoria" msprop:Generator_ColumnPropNameInRow="Categoria" msprop:Generator_ColumnPropNameInTable="CategoriaColumn" msprop:Generator_UserColumnName="Categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NDia" msprop:Generator_ColumnVarNameInTable="columnNDia" msprop:Generator_ColumnPropNameInRow="NDia" msprop:Generator_ColumnPropNameInTable="NDiaColumn" msprop:Generator_UserColumnName="NDia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hora_Inicio" msprop:Generator_ColumnVarNameInTable="columnHora_Inicio" msprop:Generator_ColumnPropNameInRow="Hora_Inicio" msprop:Generator_ColumnPropNameInTable="Hora_InicioColumn" msprop:Generator_UserColumnName="Hora_Inicio">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hora_Final" msprop:Generator_ColumnVarNameInTable="columnHora_Final" msprop:Generator_ColumnPropNameInRow="Hora_Final" msprop:Generator_ColumnPropNameInTable="Hora_FinalColumn" msprop:Generator_UserColumnName="Hora_Final">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SocioId" msprop:Generator_ColumnVarNameInTable="columnSocioId" msprop:Generator_ColumnPropNameInRow="SocioId" msprop:Generator_ColumnPropNameInTable="SocioIdColumn" msprop:Generator_UserColumnName="SocioId" type="xs:int" />
+              <xs:element name="InstructorId" msprop:Generator_ColumnVarNameInTable="columnInstructorId" msprop:Generator_ColumnPropNameInRow="InstructorId" msprop:Generator_ColumnPropNameInTable="InstructorIdColumn" msprop:Generator_UserColumnName="InstructorId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

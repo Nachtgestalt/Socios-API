@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="uFacturaESQL" Class="CodigosPostalesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=uFacturaESQL;Persist Security Info=True;User ID=sa" SettingsObjectName="uFacturaEDatos.Properties.Settings" SettingsPropertyName="uFacturaESQLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CodigosPostales" Member="CodigosPostales">
+    <Type Name="CodigosPostale">
+      <Column Name="d_codigo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="d_asenta" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="D_mnpio" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="d_estado" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="d_ciudad" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
