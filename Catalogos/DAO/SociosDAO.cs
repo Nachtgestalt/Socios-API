@@ -683,20 +683,18 @@ namespace Socios.Datos.Catalogos.DAO
                 SqlDataAdapter adaptador = new SqlDataAdapter("Select * from Cs_Recibos WHERE RemRecID=" + recibo.recibo.RemRecId.ToString(), conn);
                 adaptador.Fill(reportes, "Cs_Recibos");
                 SqlDataAdapter adaptador1 = new SqlDataAdapter("Select * from Cs_SociosDias where socioID in (Select socioid from t_RemRecDet  where  RemRecID=" + recibo.recibo.RemRecId.ToString() + ")", conn);
-
                 adaptador1.Fill(reportes, "Cs_SociosDias");
 
-                
-                // rd.SummaryInfo.ReportTitle = "(" +
-                //Socios.Datos.Utilerias.Conversiones.NumeroALetras(recibo.recibo.Total.ToString(), "PESOS", "") + ")";
-                // if (recibo.Comentario != null)
-                //     rd.SummaryInfo.ReportComments = recibo.Comentario;
 
                 rd.Load(HostingEnvironment.MapPath("~/Reportes/Recibo.rpt"));
                 rd.SetDataSource(reportes);
-                 
-                conn.Close();
 
+                rd.SummaryInfo.ReportTitle = "(" +
+               Socios.Datos.Utilerias.Conversiones.NumeroALetras(recibo.recibo.Total.ToString(), "PESOS", "") + ")";
+                if (recibo.Comentario != null)
+                    rd.SummaryInfo.ReportComments = recibo.Comentario;
+
+                conn.Close();
 
                 MemoryStream stream = new MemoryStream();
                     rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat).CopyTo(stream);

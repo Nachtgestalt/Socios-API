@@ -1527,6 +1527,7 @@ namespace Socios.Rest
          BodyStyle = WebMessageBodyStyle.Wrapped,
          UriTemplate = "Operaciones/Recibo/Save")]
         bool Recibo_Guardar(uFacturaEDatos.Operaciones.Recibo.Recibos recibo);
+
         [OperationContract]
         [WebInvoke(Method = "POST",
          ResponseFormat = WebMessageFormat.Json,
