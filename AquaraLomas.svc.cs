@@ -2545,6 +2545,14 @@ namespace Socios.Rest
             res = rec.Nuevo(SucursalID, Cual);
             return res;
         }
+
+        public bool Consulta_Folio(int SucursalID, int RemRecId)
+        {
+            bool res = false;
+            uFacturaEDatos.Operaciones.Recibo.Recibo rec = new uFacturaEDatos.Operaciones.Recibo.Recibo();
+            res = rec.ConsultaFolio(SucursalID, RemRecId);
+            return res;
+        }
         public bool Recibo_ActFol(int SucursalID, String Cual, int Folio)
         {
             bool res = false;

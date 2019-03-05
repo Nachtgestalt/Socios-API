@@ -1530,6 +1530,14 @@ namespace Socios.Rest
 
         [OperationContract]
         [WebInvoke(Method = "POST",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "Operaciones/Recibo/GetFolio")]
+        bool Consulta_Folio(int SucursalID, int RemRecId);
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
          ResponseFormat = WebMessageFormat.Json,
          RequestFormat = WebMessageFormat.Json,
          BodyStyle = WebMessageBodyStyle.Wrapped,

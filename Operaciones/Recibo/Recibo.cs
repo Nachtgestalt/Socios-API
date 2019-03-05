@@ -28,13 +28,19 @@ namespace uFacturaEDatos.Operaciones.Recibo
             bool resultado = false;
             try
             {
-                
+
                 // Obtenemos El Folio del recibo
-                if (!recibo.bCambioFol)
-                recibo.recibo.RemRecId = Nuevo(recibo.recibo.SucursalID, recibo.tipo);
-                //actualizamos el folio
-                var vfolio = from fol in _db.T_Folios where fol.IdSucursal == recibo.recibo.SucursalID && fol.FolioId == recibo.tipo select fol;
-                vfolio.First().Contador = recibo.recibo.RemRecId + 1;
+                if (recibo.bCambioFol)
+                {
+                    //Eliminamos el registro anterior
+                    Eliminar(recibo.recibo.SucursalID, recibo.recibo.RemRecId);
+
+                    //
+                }
+                    //recibo.recibo.RemRecId = Nuevo(recibo.recibo.SucursalID, recibo.tipo);
+                    ////actualizamos el folio
+                    //var vfolio = from fol in _db.T_Folios where fol.IdSucursal == recibo.recibo.SucursalID && fol.FolioId == recibo.tipo select fol;
+                    //vfolio.First().Contador = recibo.recibo.RemRecId + 1;
 
                 var vConcepto = from recip in _db.T_RemRec where recip.RemRecId == recibo.recibo.RemRecId && recip.SucursalID==recibo.recibo.SucursalID select recip;
                 if (vConcepto.Count() == 0)
@@ -402,6 +408,28 @@ namespace uFacturaEDatos.Operaciones.Recibo
             return resultado;
         }
 
+        public bool ConsultaFolio(int SucursalID, int RemRecId)
+        {
+            try
+            {
+                var vConcepto = from cout in _db.T_RemRec where cout.SucursalID == SucursalID & cout.RemRecId == RemRecId select cout.RemRecId;
+
+                if (vConcepto.Count() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                _mensajeErrorSistema = ex.Message;
+                GrabarLogError(ex);
+                return false;
+            }
+        }
 
 
         public List<DetalleIngreso> DetalleIngreso(DateTime f1,DateTime f2, int Sini,int sfin)
@@ -807,4 +835,5 @@ namespace uFacturaEDatos.Operaciones.Recibo
         [System.Runtime.Serialization.DataMember]
         public decimal Total { get; set; }
     }
+
 }
