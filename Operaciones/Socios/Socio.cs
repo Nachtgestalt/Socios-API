@@ -77,5 +77,10 @@ namespace uFacturaEDatos.Operaciones.Socios
                 return new List<uFacturaEDatos.T_Socio>();
             }
         }
+
+        //public byte[] PrintSocios()
+        //{
+
+        //}
     }
 }
