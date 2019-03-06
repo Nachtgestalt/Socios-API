@@ -37,10 +37,13 @@ namespace uFacturaEDatos.Operaciones.Recibo
 
                     //
                 }
-                    //recibo.recibo.RemRecId = Nuevo(recibo.recibo.SucursalID, recibo.tipo);
-                    ////actualizamos el folio
-                    //var vfolio = from fol in _db.T_Folios where fol.IdSucursal == recibo.recibo.SucursalID && fol.FolioId == recibo.tipo select fol;
-                    //vfolio.First().Contador = recibo.recibo.RemRecId + 1;
+                else
+                {
+                    var vfolio = from fol in _db.T_Folios
+                        where fol.IdSucursal == recibo.recibo.SucursalID && fol.FolioId == recibo.tipo
+                        select fol;
+                    vfolio.First().Contador = recibo.recibo.RemRecId + 1;
+                }
 
                 var vConcepto = from recip in _db.T_RemRec where recip.RemRecId == recibo.recibo.RemRecId && recip.SucursalID==recibo.recibo.SucursalID select recip;
                 if (vConcepto.Count() == 0)
@@ -92,7 +95,7 @@ namespace uFacturaEDatos.Operaciones.Recibo
                             pago.PagoID=c.PagoID;
                             pago.ReciboID=recibo.recibo.RemRecId;
                             pago.Cancelado = 'N';
-                            pago.Fecha = DateTime.Now;
+                            pago.Fecha = (DateTime) recibo.recibo.Fecha;
                             pagos.Add(pago);
                         }
                         _db.T_Pagos.InsertAllOnSubmit(pagos);
@@ -104,7 +107,8 @@ namespace uFacturaEDatos.Operaciones.Recibo
                 {
                     resultado = false;
                     _mensajeErrorSistema = "";
-                }    
+                }
+               
             }
             catch (Exception ex)
             {
