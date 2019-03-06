@@ -2716,6 +2716,16 @@ namespace Socios.Rest
             list = oSoc.ObtenLista();
             return list;
         }
+        public Stream ListSocios_Imprimir()
+        {
+            bool res = false;
+            Socios.Datos.Catalogos.DAO.SociosDAO rec = new Socios.Datos.Catalogos.DAO.SociosDAO();
+            WebOperationContext.Current.OutgoingResponse.ContentType = "application/pdf";
+            MemoryStream stream = new MemoryStream(rec.PrintSocios());
+            stream.Position = 0;
+            return stream;
+
+        }
 
         #endregion
         #region (Sucursal)

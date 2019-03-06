@@ -712,10 +712,40 @@ namespace Socios.Datos.Catalogos.DAO
                 return null;
 
             }
-
         }
 
-        
+        public byte[] PrintSocios()
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
+
+            try
+            {
+                conn = conexion.Cmd.Connection;
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                DataSet reportes = new DataSet();
+                SqlDataAdapter adaptador = new SqlDataAdapter("Select * from C_LISTADO_SOCIOS", conn);
+                adaptador.Fill(reportes, "C_LISTADO_SOCIOS");
+
+                rd.Load(HostingEnvironment.MapPath("~/Reportes/crListSocios.rpt"));
+                rd.SetDataSource(reportes);
+
+                conn.Close();
+
+                MemoryStream stream = new MemoryStream();
+                rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat).CopyTo(stream);
+                stream.Seek(0, SeekOrigin.Begin);
+
+                return stream.ToArray();
+            }
+            catch (SqlException ex)
+            {
+                return null;
+            }
+        }
+
+
 
     }
 }

@@ -1750,6 +1750,14 @@ namespace Socios.Rest
           UriTemplate = "Operaciones/Socios/GetList")]
         List<uFacturaEDatos.T_Socio> Socios_ObtenLista();
 
+        [OperationContract]
+        [WebInvoke(Method = "GET",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "Operaciones/Socios/Imprimir")]
+        Stream ListSocios_Imprimir();
+
         #endregion
         #region (Sucursal)
 
