@@ -686,7 +686,7 @@ namespace Socios.Datos.Catalogos.DAO
                 adaptador1.Fill(reportes, "Cs_SociosDias");
 
 
-                rd.Load(HostingEnvironment.MapPath("~/Reportes/Recibo.rpt"));
+                rd.Load(HostingEnvironment.MapPath("~/Reportes/ReciboXXX.rpt"));
                 rd.SetDataSource(reportes);
 
                 rd.SummaryInfo.ReportTitle = "(" +
