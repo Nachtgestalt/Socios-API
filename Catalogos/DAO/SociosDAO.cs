@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
+using System.EnterpriseServices;
 using Socios.Datos.Utilerias;
 using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
@@ -745,7 +746,141 @@ namespace Socios.Datos.Catalogos.DAO
             }
         }
 
+        public byte[] PrintLMV(uFacturaEDatos.Operaciones.Socios.LMV LMV)
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
 
+            string gqryGrupoHorario = "";
+            string gqryGrupo = "WHERE ";
+            string titulo = "";
+
+
+            //MANDAMOS A LLAMAR EL SP PARA LA TABLA I_SocioGpo
+            try
+            {
+                conexion.Cmd.Connection.Open();
+
+                conexion.Cmd.CommandText = "sp_dias";
+                conexion.Cmd.Parameters.Clear();
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia1", LMV.dias.dia1));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia2", LMV.dias.dia2));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia3", LMV.dias.dia3));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia4", LMV.dias.dia4));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia5", LMV.dias.dia5));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia6", LMV.dias.dia6));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia7", LMV.dias.dia7));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia8", LMV.dias.dia8));
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia9", LMV.dias.dia9));
+                conexion.Cmd.Parameters.Add(new SqlParameter("mes", LMV.mes));
+                conexion.Cmd.Parameters.Add(new SqlParameter("año", LMV.anio));
+
+                conexion.Cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Cmd.ExecuteNonQuery();
+
+                conexion.Cmd.CommandText = "sp_GeneraListas";
+                conexion.Cmd.Parameters.Clear();
+                conexion.Cmd.Parameters.Add(new SqlParameter("Dia", LMV.tipo));
+                conexion.Cmd.Parameters.Add(new SqlParameter("SucursalID", LMV.IDSucursal));
+                conexion.Cmd.CommandType = CommandType.StoredProcedure;
+                conexion.Cmd.ExecuteNonQuery();
+                //conexion.Cerrar();
+                conexion.Cmd.Connection.Close();
+            }
+            catch (SqlException ex)
+            {
+
+            }
+
+            //QUERY DEPENDIENDO EL TIPO DE CONSULTA Y TITULO DEL REPORTE
+            switch (LMV.tipo)
+            {
+                case 'L':
+
+                    gqryGrupoHorario = " where (Primer ='2' OR ";
+                    gqryGrupoHorario = gqryGrupoHorario + " Primer ='5')";
+                    titulo = "Reporte de Lunes  a Jueves";
+
+                    break;
+
+                case 'M':
+
+                    gqryGrupoHorario = " where (Primer ='3' OR ";
+                    gqryGrupoHorario = gqryGrupoHorario + " Primer ='6')";
+                    titulo = "Reporte de Martes a Viernes";
+                    break;
+                case 'V':
+
+                    gqryGrupoHorario = " where (Primer ='4' OR ";
+                    gqryGrupoHorario = gqryGrupoHorario + " Primer ='7')";
+                    titulo = "Reporte de Miercoles a Sabado";
+                    break;
+            }
+
+            //QUERY DEPENDIENDO LOS PARAMÉTROS RECIBIDOS
+            if (LMV.horario != null)
+                gqryGrupoHorario = gqryGrupoHorario + " and Hora_Inicio >= '" + LMV.horario.hora1 + "' and Hora_Inicio <= '" + LMV.horario.hora2 + "'";
+
+            if (LMV.categoria != null)
+                gqryGrupo = gqryGrupo + " (Categoria >= '"+ LMV.categoria.categoria1 +"' and Categoria <= '"+ LMV.categoria.categoria2 +"')";
+
+            if (LMV.instructor != null)
+            {
+                if (gqryGrupo != "WHERE")
+                    gqryGrupo = gqryGrupo + " and ";
+                gqryGrupo = gqryGrupo + " ( InstructorId >= '"+ LMV.instructor.instructor1 + "' and InstructorId <= '"+ LMV.instructor.instructor2 +"' )";
+            }
+
+            if (LMV.grupo != null)
+            {
+                if (gqryGrupo != "WHERE")
+                    gqryGrupo = gqryGrupo + " and ";
+                gqryGrupo = gqryGrupo + " ( GrupoId >= '"+ LMV.grupo.grupo1 +"' and GrupoId <= '"+ LMV.grupo.grupo2 +"' )";
+            }
+
+            if (gqryGrupo != "WHERE")
+                gqryGrupo = gqryGrupo + " and ";
+            gqryGrupo = gqryGrupo + " (SucursalID = '"+ LMV.IDSucursal +"')";
+
+
+            try
+            {
+                conn = conexion.Cmd.Connection;
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                DataSet reportes = new DataSet();
+
+                SqlDataAdapter adaptador = new SqlDataAdapter("Select * from cs_GrupoHorario " + gqryGrupoHorario, conn);
+                adaptador.Fill(reportes, "cs_GrupoHorario");
+
+                SqlDataAdapter adaptador1 = new SqlDataAdapter("Select * from C_Grupos " + gqryGrupo, conn);
+                adaptador1.Fill(reportes, "C_Grupos");
+
+                SqlDataAdapter adaptador2 = new SqlDataAdapter("Select * from C_Instructores ", conn);
+                adaptador2.Fill(reportes, "C_Instructores");
+
+                SqlDataAdapter adaptador3 = new SqlDataAdapter("Select * from C_Categorias ", conn);
+                adaptador3.Fill(reportes, "C_Categorias");
+
+
+                rd.Load(HostingEnvironment.MapPath("~/Reportes/crListSocios.rpt"));
+                rd.SetDataSource(reportes);
+
+                conn.Close();
+
+                MemoryStream stream = new MemoryStream();
+                rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat).CopyTo(stream);
+                stream.Seek(0, SeekOrigin.Begin);
+
+                return stream.ToArray();
+            }
+            catch (SqlException ex)
+            {
+                return null;
+            }
+
+
+        }
 
     }
 }

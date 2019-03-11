@@ -77,5 +77,97 @@ namespace uFacturaEDatos.Operaciones.Socios
                 return new List<uFacturaEDatos.T_Socio>();
             }
         }
+
+
+    }
+
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class LMV
+    {
+        [System.Runtime.Serialization.DataMember]
+        public dias dias { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public int mes { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public int anio { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public horario horario { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public categoria categoria { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public instructor instructor { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public grupo grupo { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public Char tipo { get; set; }
+
+        [System.Runtime.Serialization.DataMember]
+        public int IDSucursal { get; set; }
+    }
+
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class dias
+    {
+        [System.Runtime.Serialization.DataMember]
+        public char dia1 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia2 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia3 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia4 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia5 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia6 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia7 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia8 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public char dia9 { get; set; }
+    }
+
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class horario
+    {
+        [System.Runtime.Serialization.DataMember]
+        public string hora1 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public string hora2 { get; set; }
+    }
+
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class categoria
+    {
+        [System.Runtime.Serialization.DataMember]
+        public string categoria1 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public string categoria2 { get; set; }
+    }
+
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class instructor
+    {
+        [System.Runtime.Serialization.DataMember]
+        public string instructor1 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public string instructor2 { get; set; }
+    }
+
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class grupo
+    {
+        [System.Runtime.Serialization.DataMember]
+        public string grupo1 { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public string grupo2 { get; set; }
     }
 }
