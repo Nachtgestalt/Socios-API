@@ -1542,7 +1542,7 @@ namespace Socios.Rest
          RequestFormat = WebMessageFormat.Json,
          BodyStyle = WebMessageBodyStyle.Wrapped,
          UriTemplate = "Operaciones/Recibo/Imprimir")]
-        Stream Recibo_Imprimir(uFacturaEDatos.Operaciones.Recibo.Recibos recibo);
+        Stream Recibo_Imprimir(uFacturaEDatos.Operaciones.Recibo.PrintRecibo recibo);
         //byte[] Recibo_Imprimir(uFacturaEDatos.Operaciones.Recibo.Recibos recibo);
 
         [OperationContract]
@@ -1757,6 +1757,14 @@ namespace Socios.Rest
             BodyStyle = WebMessageBodyStyle.Wrapped,
             UriTemplate = "Operaciones/Socios/Imprimir")]
         Stream ListSocios_Imprimir();
+
+        [OperationContract]
+        [WebInvoke(Method = "POST",
+            ResponseFormat = WebMessageFormat.Json,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            UriTemplate = "Operaciones/Socios/ImprimirLMV")]
+        Stream List_LMV(uFacturaEDatos.Operaciones.Socios.LMV LMV);
 
         #endregion
         #region (Sucursal)

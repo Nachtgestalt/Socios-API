@@ -2502,7 +2502,7 @@ namespace Socios.Rest
             return res;
         }
 
-        public Stream Recibo_Imprimir(uFacturaEDatos.Operaciones.Recibo.Recibos recibo)
+        public Stream Recibo_Imprimir(uFacturaEDatos.Operaciones.Recibo.PrintRecibo recibo)
         //public byte[] Recibo_Imprimir(uFacturaEDatos.Operaciones.Recibo.Recibos recibo)
         {
             bool res = false;
@@ -2722,6 +2722,17 @@ namespace Socios.Rest
             Socios.Datos.Catalogos.DAO.SociosDAO rec = new Socios.Datos.Catalogos.DAO.SociosDAO();
             WebOperationContext.Current.OutgoingResponse.ContentType = "application/pdf";
             MemoryStream stream = new MemoryStream(rec.PrintSocios());
+            stream.Position = 0;
+            return stream;
+
+        }
+
+        public Stream List_LMV(uFacturaEDatos.Operaciones.Socios.LMV LMV)
+        {
+            bool res = false;
+            Socios.Datos.Catalogos.DAO.SociosDAO rec = new Socios.Datos.Catalogos.DAO.SociosDAO();
+            WebOperationContext.Current.OutgoingResponse.ContentType = "application/pdf";
+            MemoryStream stream = new MemoryStream(rec.PrintLMV(LMV));
             stream.Position = 0;
             return stream;
 

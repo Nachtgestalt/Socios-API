@@ -668,7 +668,7 @@ namespace Socios.Datos.Catalogos.DAO
 
         private ReportDocument rd = new ReportDocument();
 
-        public byte[] printRecibo(uFacturaEDatos.Operaciones.Recibo.Recibos recibo)
+        public byte[] printRecibo(uFacturaEDatos.Operaciones.Recibo.PrintRecibo recibo)
         {
             SqlConnection conn;
             SqlCommand cmd;
@@ -681,9 +681,9 @@ namespace Socios.Datos.Catalogos.DAO
                 cmd = new SqlCommand();
                 cmd.Connection = conn;
                 DataSet reportes = new DataSet();
-                SqlDataAdapter adaptador = new SqlDataAdapter("Select * from Cs_Recibos WHERE RemRecID=" + recibo.recibo.RemRecId.ToString(), conn);
+                SqlDataAdapter adaptador = new SqlDataAdapter("Select * from Cs_Recibos WHERE RemRecID=" + recibo.RemRecId.ToString(), conn);
                 adaptador.Fill(reportes, "Cs_Recibos");
-                SqlDataAdapter adaptador1 = new SqlDataAdapter("Select * from Cs_SociosDias where socioID in (Select socioid from t_RemRecDet  where  RemRecID=" + recibo.recibo.RemRecId.ToString() + ")", conn);
+                SqlDataAdapter adaptador1 = new SqlDataAdapter("Select * from Cs_SociosDias where socioID in (Select socioid from t_RemRecDet  where  RemRecID=" + recibo.RemRecId.ToString() + ")", conn);
                 adaptador1.Fill(reportes, "Cs_SociosDias");
 
 
@@ -691,9 +691,9 @@ namespace Socios.Datos.Catalogos.DAO
                 rd.SetDataSource(reportes);
 
                 rd.SummaryInfo.ReportTitle = "(" +
-               Socios.Datos.Utilerias.Conversiones.NumeroALetras(recibo.recibo.Total.ToString(), "PESOS", "") + ")";
-                if (recibo.Comentario != null)
-                    rd.SummaryInfo.ReportComments = recibo.Comentario;
+               Socios.Datos.Utilerias.Conversiones.NumeroALetras(recibo.total.ToString(), "PESOS", "") + ")";
+                //if (recibo.Comentario != null)
+                //    rd.SummaryInfo.ReportComments = recibo.Comentario;
 
                 conn.Close();
 
@@ -862,8 +862,14 @@ namespace Socios.Datos.Catalogos.DAO
                 SqlDataAdapter adaptador3 = new SqlDataAdapter("Select * from C_Categorias ", conn);
                 adaptador3.Fill(reportes, "C_Categorias");
 
+                SqlDataAdapter adaptador4 = new SqlDataAdapter("Select * from T_socios ", conn);
+                adaptador4.Fill(reportes, "T_socios");
 
-                rd.Load(HostingEnvironment.MapPath("~/Reportes/crListSocios.rpt"));
+                SqlDataAdapter adaptador5 = new SqlDataAdapter("Select * from I_SocioGpo ", conn);
+                adaptador5.Fill(reportes, "I_SocioGpo");
+
+
+                rd.Load(HostingEnvironment.MapPath("~/Reportes/L-M-V/crSociosGrupoG.rpt"));
                 rd.SetDataSource(reportes);
 
                 conn.Close();

@@ -840,4 +840,12 @@ namespace uFacturaEDatos.Operaciones.Recibo
         public decimal Total { get; set; }
     }
 
+    [System.Runtime.Serialization.DataContract(Namespace = "")]
+    public class PrintRecibo
+    {
+        [System.Runtime.Serialization.DataMember]
+        public int RemRecId { get; set; }
+        [System.Runtime.Serialization.DataMember]
+        public decimal total { get; set; }
+    }
 }
