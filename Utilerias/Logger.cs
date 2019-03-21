@@ -9,13 +9,15 @@ namespace Socios.Datos.Utilerias
     class Logger
     {
         
-         private static string logFile="log.txt";
 
         public static void Log(string cadena)
         {
+            string directory = System.Web.Hosting.HostingEnvironment.MapPath("~/log.txt");
+            string logFile = "log.txt";
+            string path = Path.Combine(directory, logFile);
             try
             {
-                StreamWriter sw = new StreamWriter(logFile,true);
+                StreamWriter sw = new StreamWriter(directory, true);
                 sw.WriteLine(DateTime.Now + ": " + cadena);
                 sw.Close();
             }
